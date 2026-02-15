@@ -1,7 +1,7 @@
 ```python
 from pathlib import Path
 
-readme = """# NOM_DU_PROJET — API Symfony (PHP 8 / MySQL)
+readme = """# Vitegourmand — API Symfony (PHP 8 / MySQL)
 
 API développée avec **Symfony** (contrôleurs) en **PHP 8** et **MySQL**, déployable en production avec **Apache**.
 
@@ -59,3 +59,4 @@ API développée avec **Symfony** (contrôleurs) en **PHP 8** et **MySQL**, dép
 git clone https://github.com/<VOTRE_USER>/<VOTRE_REPO>.git
 cd <VOTRE_REPO>
 composer install
+
