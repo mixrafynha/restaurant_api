@@ -1,7 +1,8 @@
-ENV APP_ENV=prod
-ENV APP_DEBUG=0
+
 
 FROM php:8.4-apache
+ENV APP_ENV=prod
+ENV APP_DEBUG=0
 
 # Instalar extensões necessárias
 RUN apt-get update && apt-get install -y \
@@ -33,4 +34,5 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
     /etc/apache2/conf-available/*.conf
 
 EXPOSE 80
+
 
