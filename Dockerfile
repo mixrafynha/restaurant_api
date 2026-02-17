@@ -19,6 +19,8 @@ RUN php bin/console cache:clear --env=prod
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "php -S 0.0.0.0:${PORT:-8080} -t public"]
+CMD ["sh", "-c", "php bin/console doctrine:migrations:sync-metadata-storage && php bin/console doctrine:migrations:version --add --all && php -S 0.0.0.0:${PORT:-8080} -t public"]
+
+
 
 
