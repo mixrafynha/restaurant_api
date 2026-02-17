@@ -1,14 +1,12 @@
-FROM php:8.3-cli
+FROM php:8.4-cli
 
 ENV APP_ENV=prod
 ENV APP_DEBUG=0
 
-# Dependências do sistema
 RUN apt-get update && apt-get install -y \
     git unzip libicu-dev libzip-dev zip \
     && docker-php-ext-install intl pdo pdo_mysql zip
 
-# Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
