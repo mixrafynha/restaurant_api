@@ -3,12 +3,17 @@ FROM php:8.4-apache
 ENV APP_ENV=prod
 ENV APP_DEBUG=0
 
+# Garantir apenas um MPM ativo
+RUN a2dismod mpm_event || true
+RUN a2dismod mpm_worker || true
+RUN a2enmod mpm_prefork
+
 # Instalar extensões
 RUN apt-get update && apt-get install -y \
     git unzip libicu-dev libzip-dev zip \
     && docker-php-ext-install intl pdo pdo_mysql zip
 
-# Ativar mod_rewrite (SEM restart)
+# Ativar mod_rewrite
 RUN a2enmod rewrite
 
 # Instalar Composer
