@@ -1,6 +1,7 @@
 
 
 FROM php:8.4-apache
+
 ENV APP_ENV=prod
 ENV APP_DEBUG=0
 
@@ -34,5 +35,6 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
     /etc/apache2/conf-available/*.conf
 
 EXPOSE 80
+
 
 
